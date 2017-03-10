@@ -61,18 +61,20 @@ public class TestCycles {
 		/* test version, using imported json file from Expertiza*/
 		File file = new File("F:\\Dropbox\\my papers\\2016 colussion\\collusion_detection_sample_735 program1.txt");
 		FileInputStream fis = new FileInputStream(file);
+		// read the file as a byte array
 		byte[] data = new byte[(int) file.length()];
 		fis.read(data);
 		fis.close();
+		// convert the byte array into a string
 		String str = new String(data, "UTF-8");
 		
 		JSONObject obj = new JSONObject(str);
-		
+		// get the actors as an Array
 		JSONArray actors = obj.getJSONArray("actors");
 		int num_vertices = actors.length();
 		String nodes[] = new String[num_vertices];
 		
-		//create list of nodes
+		// Add the ids into an array of String
 		for (int i = 0; i < actors.length(); i++)
 		{
 		    String individual_actor_id = actors.getJSONObject(i).getString("id");
@@ -80,13 +82,14 @@ public class TestCycles {
 		}
 		
 		boolean adjMatrix[][] = new boolean[num_vertices][num_vertices];
-		//create list of edges 
-		JSONArray crituques = obj.getJSONArray("crituques");
+		// get the critiques as an Array
+		JSONArray critiques = obj.getJSONArray("crituques");
+		// Add the edges into a 2-D array
 		for (int i = 0; i < crituques.length(); i++)
 		{
-		    String reviewerActorIdString = crituques.getJSONObject(i).getString("reviewer_actor_id");
-		    String revieweeActorIdString = crituques.getJSONObject(i).getString("reviewee_actor_id");
-		    double score = crituques.getJSONObject(i).getDouble("score");
+		    String reviewerActorIdString = critiques.getJSONObject(i).getString("reviewer_actor_id");
+		    String revieweeActorIdString = critiques.getJSONObject(i).getString("reviewee_actor_id");
+		    double score = critiques.getJSONObject(i).getDouble("score");
 		    int reviewerActorIdInt = indexOfNodes(reviewerActorIdString, nodes);
 		    int revieweeActorIdInt = indexOfNodes(revieweeActorIdString, nodes);
 		    if(reviewerActorIdInt!=-1 && revieweeActorIdInt!=-1 && score>95.0)
