@@ -2,8 +2,6 @@
 import java.util.List;
 import java.util.Vector;
 
-
-
 /**
  * Searchs all elementary cycles in a given directed graph. The implementation
  * is independent from the concrete objects that represent the graphnodes, it

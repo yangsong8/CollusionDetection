@@ -59,7 +59,7 @@ public class TestCycles {
 		*/
 
 		/* test version, using imported json file from Expertiza*/
-		File file = new File("F:\\Dropbox\\my papers\\2016 colussion\\collusion_detection_sample_735 program1.txt");
+		File file = new File("F:\\Dropbox\\my papers\\2017 FIE collusion\\collusion_detection_sample_735 program1.txt");
 		FileInputStream fis = new FileInputStream(file);
 		// read the file as a byte array
 		byte[] data = new byte[(int) file.length()];
@@ -92,7 +92,7 @@ public class TestCycles {
 		    double score = critiques.getJSONObject(i).getDouble("score");
 		    int reviewerActorIdInt = indexOfNodes(reviewerActorIdString, nodes);
 		    int revieweeActorIdInt = indexOfNodes(revieweeActorIdString, nodes);
-		    if(reviewerActorIdInt!=-1 && revieweeActorIdInt!=-1 && score>95.0)
+		    if(reviewerActorIdInt!=-1 && revieweeActorIdInt!=-1 && score>95.0 && reviewerActorIdInt != revieweeActorIdInt)
 		    {
 		    	adjMatrix[reviewerActorIdInt][revieweeActorIdInt] = true;
 		    }
