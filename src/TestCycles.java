@@ -107,12 +107,12 @@ public class TestCycles {
 			
 			List cycle = (List) cycles.get(i);
 			
-			if(cycle.size()>5)
-			{
+			// Ignore the potential cycles if there are too many nodes
+			if(cycle.size()>5){
 				continue;
 			}
 			System.out.print("{\n\"colluders\":[");
-			
+			// output colluders for each potential colluding cycle
 			for (int j = 0; j < cycle.size(); j++) {
 				String node = (String) cycle.get(j);
 				
@@ -135,6 +135,7 @@ public class TestCycles {
 		
 	}
 	
+	// return the index of id in nodes. if it does not exist, return -1.
 	private static int indexOfNodes(String id, String[] nodes){
 		int index = -1;
 		for (int i=0;i<nodes.length;i++) {
