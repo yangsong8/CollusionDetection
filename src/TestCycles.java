@@ -80,7 +80,7 @@ public class TestCycles {
 		}
 		
 		boolean adjMatrix[][] = new boolean[num_vertices][num_vertices];
-		//create list of edges
+		//create list of edges 
 		JSONArray crituques = obj.getJSONArray("crituques");
 		for (int i = 0; i < crituques.length(); i++)
 		{
