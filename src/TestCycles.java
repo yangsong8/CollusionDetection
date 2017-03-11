@@ -59,7 +59,7 @@ public class TestCycles {
 		*/
 
 		/* test version, using imported json file from Expertiza*/
-		File file = new File("F:\\Dropbox\\my papers\\2017 FIE collusion\\collusion_detection_sample_735 program1.txt");
+		File file = new File("G:\\Dropbox\\my papers\\2017 FIE collusion\\collusion_detection_sample_735 program1.txt");
 		FileInputStream fis = new FileInputStream(file);
 		// read the file as a byte array
 		byte[] data = new byte[(int) file.length()];
@@ -85,7 +85,7 @@ public class TestCycles {
 		// get the critiques as an Array
 		JSONArray critiques = obj.getJSONArray("crituques");
 		// Add the edges into a 2-D array
-		for (int i = 0; i < crituques.length(); i++)
+		for (int i = 0; i < critiques.length(); i++)
 		{
 		    String reviewerActorIdString = critiques.getJSONObject(i).getString("reviewer_actor_id");
 		    String revieweeActorIdString = critiques.getJSONObject(i).getString("reviewee_actor_id");
