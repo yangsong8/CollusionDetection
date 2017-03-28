@@ -58,7 +58,7 @@ public class TestCycles {
 		}
 		*/
 
-		/* test version, using imported json file from Expertiza*/
+		/* using imported json file from Expertiza*/
 		File file = new File("G:\\Dropbox\\my papers\\2017 FIE collusion\\collusion_detection_sample_735 program1.txt");
 		FileInputStream fis = new FileInputStream(file);
 		// read the file as a byte array
